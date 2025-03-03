@@ -15,6 +15,7 @@ import random
 
 def setCustomizations():
     # Helper function to help hide a lot of the customizations going on
+
     global high_battery_color, medium_battery_color, low_battery_color, window_color, font_type, number_color, charging_color, unplugged_color
     global low_battery_interval, medium_battery_interval, big_font_size, small_font_size
     high_battery_color, medium_battery_color, low_battery_color = "#024096", "#bd9100", "#960202"
@@ -32,6 +33,8 @@ def setCustomizations():
 
 
 def get_random_color():
+    # Function used exclusively for the random color switching when battery is at 100%
+
     color = "#"
     for _ in range(6):
         num = random.randint(0, 15)    # Get random number valid for base 16 (hexadecimal)
@@ -42,6 +45,8 @@ def get_random_color():
 
 
 def progress_bar_color(value):
+    # Returns the color that the progress bar should update itself to
+
     global low_battery_interval
     global medium_battery_interval
     global s
@@ -62,6 +67,7 @@ def progress_bar_color(value):
     
 
 def play_alert(charging, color):
+    # In charge of playing sounds at certain battery levels
     """
     ** >> READ << **
     When using `playsound` it will play the audio file at the MAXIMUM volume that you're sound mixer is currently at!
